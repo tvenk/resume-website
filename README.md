@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+README.md
+Project Name: Personal Portfolio Website
+Description
+This project is a personal portfolio website built using React.js, styled-components, and CSS variables. It showcases my professional experience, education, certifications, skills, personal projects, and professional development. The website features a dynamic background that fades as you scroll down the page, theme toggling (light and dark mode), and a clean, responsive design.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+Dynamic Background: The background fades as you scroll down the page.
+Theme Toggling: Users can switch between light and dark themes, with customizable colors and styles.
+Responsive Design: The website is fully responsive and looks great on all devices.
+Fade-In Sections: Each section fades in as you scroll, enhancing the user experience.
+Customizable Themes: The light and dark themes are fully customizable using CSS variables.
+Technologies Used
+React.js: For building the user interface.
+styled-components: For styling components with CSS-in-JS.
+CSS Variables: For dynamic theme switching and customization.
+JavaScript: For handling scroll events and theme toggling.
+Installation
+Clone the repository:
+git clone https://github.com/your-username/your-repo-name.git
+Navigate to the project directory:
+cd your-repo-name
+Install dependencies:
+npm install
+Start the development server:
+npm start
+Usage
+Theme Toggling: Click the theme toggle button in the header to switch between light and dark themes.
+Scrolling Effects: Scroll down the page to see the fade-in sections.
+Customization
+Themes: Customize the light and dark themes by modifying the lightTheme and darkTheme objects in the App.js file.
+CSS Variables: Define your own CSS variables in the :root selector in the index.css file.
+Sections: Add or modify sections in the App.js file to customize the content of your portfolio.
+Contributing
+Feel free to fork this repository and make your own changes. If you have any suggestions or improvements, please open an issue or submit a pull request.
 
-## Available Scripts
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
