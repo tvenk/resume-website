@@ -135,7 +135,7 @@ function App() {
               <li><strong>Certifications:</strong> CompTIA Security+, Palo Alto Network based certs., TryHackMe SOC I</li>
               <li><strong>Security Tools:</strong> Wazuh SIEM, Elastic Stack, Snort IDS/IPS, CrowdSec, Palo Alto Firewalls</li>
               <li><strong>Technical:</strong> Python, PowerShell, SQL, Selenium, AWS, Terraform, Docker, Ansible</li>
-              <li><strong>Systems:</strong> Red Hat Linux, Windows, Unix | Tools: Jira, Confluence, SharePoint</li>
+              <li><strong>Systems: Red Hat Linux, Windows, Unix | Tools: Jira, Confluence, SharePoint, Git, Github</li>
             </ul>
           </Section>
         </FadeInSection>
@@ -167,7 +167,7 @@ function App() {
             <h2>PERSONAL PROJECTS</h2>
             <h3>Cloud & Security Infrastructure</h3>
             <ul>
-              <li>Deployed secure AWS infrastructure using Terraform with automated security controls.</li>
+              <li>Developed a browser extension using JavaScript, Chrome Extensions API, and Kimi AI API to analyze user history and generate a personalized composite compatibility score from 0 to 100 saving them engagement time.</li>
               <li>Built comprehensive security lab with Crowdsec, SNORT IDS/IPS, and Wazuh SIEM.</li>
               <li>Developed Python-based financial analysis tools with secure data handling.</li>
             </ul>
@@ -186,7 +186,7 @@ function App() {
             </ul>
             <h3>AWS APAC Solutions Architecture Virtual Experience</h3>
             <ul>
-              <li>Designed a simple and scalable hosting architecture based on Elastic Beanstalk for a client experiencing significant growth and slow response times.</li>
+              <li>Designed a simple and scalable hosting architecture based on Elastic Beanstalk for a client.</li>
               <li>Described my proposed architecture in jargon-free language to ensure client understanding of how it works and how costs will be calculated.</li>
             </ul>
             <h3>JPMorgan Chase & Co. Cybersecurity Job Simulation</h3>
