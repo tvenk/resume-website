@@ -135,7 +135,7 @@ function App() {
               <li><strong>Certifications:</strong> CompTIA Security+, Palo Alto Network based certs., TryHackMe SOC I</li>
               <li><strong>Security Tools:</strong> Wazuh SIEM, Elastic Stack, Snort IDS/IPS, CrowdSec, Palo Alto Firewalls</li>
               <li><strong>Technical:</strong> Python, PowerShell, SQL, Selenium, AWS, Terraform, Docker, Ansible</li>
-              <li><strong>Systems:</strong> Red Hat Linux, Windows, Unix | Tools: Jira, Confluence, SharePoint</li>
+              <li><strong>Systems: Red Hat Linux, Windows, Unix | Tools: Jira, Confluence, SharePoint, Git, Github</li>
             </ul>
           </Section>
         </FadeInSection>
