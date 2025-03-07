@@ -106,7 +106,7 @@ function App() {
         <FadeInSection>
           <CenterSection>
             <h1>Thushal Bharadwaj Nelamane Venkatesh</h1>
-            <p>Virginia, USA | tvenkb@gmail.com | (703) 594-6142</p>
+            <p>Virginia, USA | tvenkb@gmail.com</p>
             <p>
               <GlowLink href="https://github.com/tvenk" target="_blank" rel="noopener noreferrer">GitHub</GlowLink> |{' '}
               <GlowLink href="https://www.linkedin.com/in/tbnv/" target="_blank" rel="noopener noreferrer">LinkedIn</GlowLink>
