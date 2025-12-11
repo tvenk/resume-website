@@ -1,25 +1,59 @@
+/**
+ * App.js - Main Resume Website Component
+ *
+ * This is the root component of the resume website. It contains:
+ * 1. Theme configuration (light/dark mode)
+ * 2. Styled components for layout
+ * 3. All resume content organized into sections
+ *
+ * Flow: index.js renders App.js -> App.js uses ThemeProvider to wrap all content
+ *       -> Each section uses FadeInSection for scroll animations
+ *       -> ThemeToggle allows users to switch between light/dark themes
+ *
+ * Dependencies:
+ * - styled-components: CSS-in-JS library for component styling
+ * - FadeInSection.js: Wrapper component that fades in content on scroll
+ * - ThemeToggle.js: Button component to switch between light/dark themes
+ */
+
 import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import FadeInSection from './FadeInSection';
 import ThemeToggle from './ThemeToggle';
 import './index.css';
 
-// Define your themes
+/* ============================================
+   THEME CONFIGURATION
+   ============================================
+   Define color schemes for light and dark modes.
+   These values are accessible via props.theme in styled components.
+*/
+
 const lightTheme = {
-  background: '#ffffff',
-  textColor: '#000000', // Black in light mode
-  worldLine: '#40E0D0', // Turquoise for light mode
-  gridColor: 'rgba(64, 224, 208, 0.1)', // Faded turquoise grid
+  background: '#ffffff',      // White background
+  textColor: '#000000',       // Black text for readability
+  worldLine: '#40E0D0',       // Turquoise vertical timeline
+  gridColor: 'rgba(64, 224, 208, 0.1)', // Faded turquoise grid pattern
 };
 
 const darkTheme = {
-  background: '#000000',
-  textColor: '#ffffff', // White in dark mode
-  worldLine: '#ff0000', // Red for dark mode
-  gridColor: 'rgba(255, 0, 0, 0.1)', // Faded red grid
+  background: '#000000',      // Black background
+  textColor: '#ffffff',       // White text for contrast
+  worldLine: '#ff0000',       // Red vertical timeline
+  gridColor: 'rgba(255, 0, 0, 0.1)', // Faded red grid pattern
 };
 
-// Styled components
+/* ============================================
+   STYLED COMPONENTS
+   ============================================
+   These components define the visual layout of the resume.
+   Each component receives theme colors via props.theme.
+*/
+
+/**
+ * AppContainer - The main wrapper for the entire page
+ * Sets background color, text color, and minimum height
+ */
 const AppContainer = styled.div`
   background-color: ${props => props.theme.background};
   color: ${props => props.theme.textColor};
@@ -28,16 +62,25 @@ const AppContainer = styled.div`
   position: relative;
 `;
 
+/**
+ * WorldLine - The vertical timeline running down the center of the page
+ * Creates a visual connection between all resume sections
+ */
 const WorldLine = styled.div`
   position: absolute;
   left: 50%;
-  top: 200px; /* Start below Section 1 */
+  top: 200px;
   width: 2px;
-  height: calc(100% - 200px); /* Adjust height to start from Section 1 */
+  height: calc(100% - 200px);
   background-color: ${props => props.theme.worldLine};
   z-index: 0;
 `;
 
+/**
+ * Section - A content box that can be aligned left or right
+ * Used for most resume sections (Education, Experience, etc.)
+ * Pass align="left" or align="right" to position the section
+ */
 const Section = styled.div`
   margin: 50px 0;
   padding: 20px;
@@ -51,6 +94,10 @@ const Section = styled.div`
   color: ${props => props.theme.textColor};
 `;
 
+/**
+ * CenterSection - A centered content box for the header
+ * Includes a grid background pattern for visual interest
+ */
 const CenterSection = styled.div`
   text-align: center;
   margin: 50px auto;
@@ -65,6 +112,7 @@ const CenterSection = styled.div`
   color: ${props => props.theme.textColor};
   overflow: hidden;
 
+  /* Grid background pattern using CSS gradients */
   &::before {
     content: '';
     position: absolute;
@@ -79,6 +127,10 @@ const CenterSection = styled.div`
   }
 `;
 
+/**
+ * GlowLink - A styled anchor tag with hover glow effect
+ * Used for clickable links (GitHub, LinkedIn, Portfolio)
+ */
 const GlowLink = styled.a`
   color: ${props => props.theme.textColor};
   text-decoration: none;
@@ -89,115 +141,152 @@ const GlowLink = styled.a`
   }
 `;
 
+/* ============================================
+   MAIN APP COMPONENT
+   ============================================
+   The App function component manages theme state and renders all resume content.
+*/
+
 function App() {
+  // State to track current theme ('light' or 'dark')
   const [theme, setTheme] = useState('light');
 
+  // Function to toggle between light and dark themes
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (
+    // ThemeProvider makes theme colors available to all styled components
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <AppContainer>
+        {/* Theme toggle button (fixed position, top-right corner) */}
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+
+        {/* Vertical timeline line connecting all sections */}
         <WorldLine />
 
-        {/* Section 1: Header (Centered) */}
+        {/* ----------------------------------------
+            SECTION 1: Header / Contact Information
+            Centered at the top of the page
+        ---------------------------------------- */}
         <FadeInSection>
           <CenterSection>
             <h1>Thushal Bharadwaj Nelamane Venkatesh</h1>
             <p>Virginia, USA | tvenkb@gmail.com</p>
+            <p>Work Authorization: Green Card</p>
             <p>
+              <GlowLink href="https://tvenk.github.io/resume-website/" target="_blank" rel="noopener noreferrer">Portfolio</GlowLink> |{' '}
               <GlowLink href="https://github.com/tvenk" target="_blank" rel="noopener noreferrer">GitHub</GlowLink> |{' '}
               <GlowLink href="https://www.linkedin.com/in/tbnv/" target="_blank" rel="noopener noreferrer">LinkedIn</GlowLink>
             </p>
           </CenterSection>
         </FadeInSection>
 
-        {/* Section 2: Education (Left) */}
+        {/* ----------------------------------------
+            SECTION 2: Education
+            Aligned to the left side of the timeline
+        ---------------------------------------- */}
         <FadeInSection>
           <Section align="left">
             <h2>EDUCATION</h2>
-            <p>Bachelor of Science in Information Technology - Information Security Concentration</p>
+
+            {/* Undergraduate Degree */}
+            <p><strong>Bachelor of Science in Information Technology - Information Security Concentration</strong></p>
             <p>George Mason University, Fairfax, VA | May 2023</p>
-            <ul>
-              <li>Security-focused IT professional with hands-on experience in network security, SIEM implementation, and automation.</li>
-              <li>Demonstrated expertise in threat detection, incident response, and security tools implementation.</li>
-            </ul>
+
+            {/* Graduate Degree (In Progress) */}
+            <p style={{ marginTop: '20px' }}><strong>Online Master of Science in Cybersecurity</strong></p>
+            <p>Georgia Tech, Atlanta, GA | Expected ~May 2028</p>
           </Section>
         </FadeInSection>
 
-        {/* Section 3: Certifications & Skills (Right) */}
+        {/* ----------------------------------------
+            SECTION 3: Certifications & Skills
+            Aligned to the right side of the timeline
+        ---------------------------------------- */}
         <FadeInSection>
           <Section align="right">
             <h2>CERTIFICATIONS & SKILLS</h2>
             <ul>
-              <li><strong>Certifications:</strong> CompTIA Security+, Palo Alto Network based certs., TryHackMe SOC I</li>
+              <li><strong>Certifications:</strong> CompTIA Security+, CompTIA Network+, Palo Alto Network based certs., TryHackMe SOC I</li>
               <li><strong>Security Tools:</strong> Wazuh SIEM, Elastic Stack, Snort IDS/IPS, CrowdSec, Palo Alto Firewalls</li>
-              <li><strong>Technical:</strong> Python, PowerShell, SQL, Selenium, AWS, Terraform, Docker, Ansible</li>
+              <li><strong>Technical:</strong> Python, PowerShell, SQL, Selenium automation, REST API</li>
               <li><strong>Systems:</strong> Red Hat Linux, Windows, Unix</li>
-              <li><strong>Tools:</strong> Jira, Confluence, SharePoint, Git, Github</li>
+              <li><strong>Tools:</strong> Jira, Confluence, SharePoint, Git, Github, Microsoft Suite</li>
             </ul>
           </Section>
         </FadeInSection>
 
-        {/* Section 4: Professional Experience (Left) */}
+        {/* ----------------------------------------
+            SECTION 4: Professional Experience
+            Aligned to the left side of the timeline
+            Jobs are listed in reverse chronological order (newest first)
+        ---------------------------------------- */}
         <FadeInSection>
           <Section align="left">
             <h2>PROFESSIONAL EXPERIENCE</h2>
+
+            {/* Job 1: Most Recent Position */}
+            <h3>Part Time Application Developer | Suviko LLC (Remote) | October 2025 - Present</h3>
+            <ul>
+              <li>Managed Git version control, including branch handling, remote pushes, and commit refactoring/tracking using Git branching and history rewrite techniques.</li>
+              <li>Implemented Firebase Authentication with role-based custom claims to secure user and driver access.</li>
+              <li>Designed and maintained Firestore Database schemas with optimized indexing and secure data structures for user and trip collections.</li>
+              <li>Resolved CI/CD pipeline issues and environment configuration errors to ensure secure and reliable build processes for Android deployment.</li>
+              <li>Developed and tested Cloud Functions for lifecycle management, integrating Square for secure payment processing.</li>
+            </ul>
+
+            {/* Job 2: Previous Position */}
             <h3>IT Network and Cybersecurity Intern | TDS Telecom (Remote) | May 2023 - May 2024</h3>
             <ul>
-              <li>Implemented Elasticsearch/Kibana security monitoring, reducing threat detection time by 60%.</li>
-              <li>Engineered 400+ Kali Linux command detection rules in Elastic SIEM for enhanced SOC capabilities.</li>
-              <li>Automated device integration using Python/REST APIs, improving efficiency by 90%.</li>
-              <li>Developed security documentation for enterprise systems and custom Selenium automation scripts.</li>
-              <li>Created manifest for decommissioning old firewall devices without causing any policy collisions.</li>
-              <li>Utilized grok parsing for hundreds of production server data for Elasticsearch log ingest with 0 errors.</li>
+              <li>Reduced threat detection time by 60% through Elasticsearch/Kibana security monitoring.</li>
+              <li>Developed 400+ Kali Linux command detection rules in Elastic SIEM, enhancing SOC visibility.</li>
+              <li>Automated device integration with Python and REST APIs, improving efficiency by 90%.</li>
+              <li>Streamlined system management by creating comprehensive security documentation and Selenium automation scripts, reducing operational delays.</li>
+              <li>Designed a manifest for firewall decommissioning, ensuring zero policy collisions.</li>
+              <li>Improved Elasticsearch data accuracy with 0 errors using grok parsing for log ingestion.</li>
             </ul>
-            <h3>IT Student | Great Oaks Cleaning Solution (Remote) | December 2022 – May 2023</h3>
+
+            {/* Job 3: Entry Level Position */}
+            <h3>IT Student | Great Oaks Cleaning Solution (Remote) | December 2022 - May 2023</h3>
             <ul>
-              <li>Architected secure LAMP stack web application following OWASP guidelines.</li>
-              <li>Implemented security-focused customer engagement system with 40% conversion improvement.</li>
+              <li>Developed a secure LAMP stack web app, following OWASP guidelines.</li>
+              <li>Implemented a security-focused customer engagement system, increasing conversions by 40%.</li>
             </ul>
           </Section>
         </FadeInSection>
 
-        {/* Section 5: Personal Projects (Right) */}
+        {/* ----------------------------------------
+            SECTION 5: Personal Projects
+            Aligned to the right side of the timeline
+            Showcases independent work and technical skills
+        ---------------------------------------- */}
         <FadeInSection>
           <Section align="right">
             <h2>PERSONAL PROJECTS</h2>
-            <h3>Automation/AI & Security Infrastructure</h3>
+            <p><em>2024-2025</em></p>
+
+            {/* Project Category 1 */}
+            <h3>Automation Scripting</h3>
             <ul>
-              <li>Developed a browser extension using JavaScript, Chrome Extensions API, and Kimi AI API to analyze user history and generate a personalized composite compatibility score from 0 to 100 saving them engagement time.</li>
-              <li>Built comprehensive security lab with Crowdsec, SNORT IDS/IPS, and Wazuh SIEM.</li>
-              <li>Developed Python-based financial analysis tools with secure data handling.</li>
+              <li>Created a Python based script for automated copy paste of CLI text into various AI websites.</li>
+            </ul>
+
+            {/* Project Category 2 */}
+            <h3>Financial Analysis via Scripting</h3>
+            <ul>
+              <li>Created a Python based financial analyzer script for investment guidance, including dollar cost averaging.</li>
+            </ul>
+
+            {/* Project Category 3 */}
+            <h3>Security Infrastructure</h3>
+            <ul>
+              <li>Built a comprehensive security lab with Crowdsec, SNORT IDS/IPS, and Wazuh SIEM.</li>
             </ul>
           </Section>
         </FadeInSection>
 
-        {/* Section 6: Professional Development (Left) */}
-        <FadeInSection>
-          <Section align="left">
-            <h2>PROFESSIONAL DEVELOPMENT</h2>
-            <h3>Clifford Chance Cyber Security Global Job Simulation</h3>
-            <ul>
-              <li>Completed the 5-day Clifford Chance job simulation, assisting clients with legal issues related to cyber breaches.</li>
-              <li>Assisted a major eCommerce business notification of stakeholders in compliance with GDPR regulation.</li>
-              <li>Formulated defensive strategies for a client with data center operations for approximately 10,000 records.</li>
-            </ul>
-            <h3>AWS APAC Solutions Architecture Virtual Experience</h3>
-            <ul>
-              <li>Designed a simple and scalable hosting architecture based on Elastic Beanstalk for a client.</li>
-              <li>Described my proposed architecture in jargon-free language to ensure client understanding of how it works and how costs will be calculated.</li>
-            </ul>
-            <h3>JPMorgan Chase & Co. Cybersecurity Job Simulation</h3>
-            <ul>
-              <li>Analyzed fraud datasets and built text-based ML models for spam email classification.</li>
-              <li>Built a spam email classifier achieving an accuracy rate of 85%.</li>
-              <li>Designed and developed a system to tighten access to sensitive information, reducing unauthorized access attempts by 30%.</li>
-            </ul>
-          </Section>
-        </FadeInSection>
       </AppContainer>
     </ThemeProvider>
   );
