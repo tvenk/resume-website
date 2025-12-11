@@ -287,6 +287,40 @@ function App() {
           </Section>
         </FadeInSection>
 
+        {/* ----------------------------------------
+            SECTION 6: Professional Development
+            Aligned to the left side of the timeline
+            Job simulations and virtual experiences
+        ---------------------------------------- */}
+        <FadeInSection>
+          <Section align="left">
+            <h2>PROFESSIONAL DEVELOPMENT</h2>
+
+            {/* Simulation 1 */}
+            <h3>Clifford Chance Cyber Security Global Job Simulation</h3>
+            <ul>
+              <li>Completed the 5-day Clifford Chance job simulation, assisting clients with legal issues related to cyber breaches.</li>
+              <li>Assisted a major eCommerce business notification of stakeholders in compliance with GDPR regulation.</li>
+              <li>Formulated defensive strategies for a client with data center operations for approximately 10,000 records.</li>
+            </ul>
+
+            {/* Simulation 2 */}
+            <h3>AWS APAC Solutions Architecture Virtual Experience</h3>
+            <ul>
+              <li>Designed a simple and scalable hosting architecture based on Elastic Beanstalk for a client.</li>
+              <li>Described my proposed architecture in jargon-free language to ensure client understanding of how it works and how costs will be calculated.</li>
+            </ul>
+
+            {/* Simulation 3 */}
+            <h3>JPMorgan Chase & Co. Cybersecurity Job Simulation</h3>
+            <ul>
+              <li>Analyzed fraud datasets and built text-based ML models for spam email classification.</li>
+              <li>Built a spam email classifier achieving an accuracy rate of 85%.</li>
+              <li>Designed and developed a system to tighten access to sensitive information, reducing unauthorized access attempts by 30%.</li>
+            </ul>
+          </Section>
+        </FadeInSection>
+
       </AppContainer>
     </ThemeProvider>
   );
